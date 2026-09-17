@@ -1,0 +1,29 @@
+name: 自动测试
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  solver-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 获取代码
+        uses: actions/checkout@v4
+
+      - name: 配置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 运行关卡与求解测试
+        env:
+          SDL_VIDEODRIVER: dummy
+          SDL_AUDIODRIVER: dummy
+        run: python test_solver.py
