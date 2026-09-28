@@ -17,11 +17,17 @@ test_solver.py   自动测试与关卡验证
 
 ## 启动
 
-在本文件夹打开终端：
+本项目需要先安装 Python 和 Pygame。在本文件夹打开终端，执行：
 
 ```cmd
-pip install -r requirements.txt
+python -m pip install pygame
 python main.py
+```
+
+也可以通过项目中的依赖文件安装：
+
+```cmd
+python -m pip install -r requirements.txt
 ```
 
 ## 玩法
